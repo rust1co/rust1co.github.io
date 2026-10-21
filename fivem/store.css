@@ -1,0 +1,27 @@
+/* Headless-only pieces: package details overlay, notices, Tebex legal line */
+.fm-details { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px;
+  background: rgb(0 0 0 / 72%); backdrop-filter: blur(6px); }
+.fm-details-panel { position: relative; width: min(980px, 100%); max-height: calc(100vh - 32px); overflow: auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; padding: 28px;
+  background: #171717; border: 1px solid rgb(255 255 255 / 10%); border-radius: 14px; }
+.fm-details-panel > img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; position: sticky; top: 0; }
+.fm-details-body h2 { margin: .3rem 0 1rem; font: 700 2rem/1.05 "Barlow Condensed", sans-serif; text-transform: uppercase; color: #fff; }
+.fm-details-buy { display: flex; align-items: center; gap: 18px; margin-bottom: 1.4rem; }
+.fm-details-buy strong { font: 700 1.6rem "Barlow Condensed", sans-serif; color: #fff; }
+.fm-details-text { color: rgb(255 255 255 / 78%); line-height: 1.6; }
+.fm-details-text h3 { margin: 1.3rem 0 .4rem; color: #fff; font: 700 1.15rem "Barlow Condensed", sans-serif; text-transform: uppercase; }
+.fm-details-text a { color: var(--fm-red, #ffb020); }
+.fm-details-text ul { margin: .3rem 0 0; padding-left: 1.2em; list-style: disc; }
+.fm-details-close { position: absolute; top: 10px; right: 14px; z-index: 1; background: none; border: 0; color: #fff;
+  font-size: 2rem; line-height: 1; cursor: pointer; opacity: .7; }
+.fm-details-close:hover { opacity: 1; }
+@media (max-width: 760px) { .fm-details-panel { grid-template-columns: 1fr; padding: 20px; } .fm-details-panel > img { position: static; } }
+
+.fm-notice { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 1001; max-width: calc(100% - 32px);
+  padding: 14px 20px; border-radius: 10px; background: #1f1f1f; border: 1px solid rgb(255 255 255 / 14%); color: #fff;
+  font: 500 .95rem "Barlow", sans-serif; box-shadow: 0 10px 40px rgb(0 0 0 / 50%); }
+.fm-notice.is-error { border-color: #e5484d; }
+[data-buy].is-loading { opacity: .6; pointer-events: none; }
+
+.fm-tebex-legal { padding: 18px 16px 26px; text-align: center; font: 400 .8rem/1.6 "Barlow", sans-serif; color: rgb(255 255 255 / 55%); }
+.fm-tebex-legal a { color: rgb(255 255 255 / 75%); margin: 0 8px; }
